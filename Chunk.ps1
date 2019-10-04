@@ -1,8 +1,8 @@
 #Chunksize Mimicry: From a master list, iterate over chunks of N files in folder/directory for ETL use 
 function Chunks{
-    param($All_Files)
+    param($All_Files, $ChunkSize)
     $j = 1
-    for ($i=0; $i -le $All_Files.length-1; $i+=2){
+    for ($i=0; $i -le $All_Files.length-1; $i+=$ChunkSize){
         LogWrite Batch:' '$j
         $j++
         $CurrentBatch = $All_Files[$i..($i+1)]
